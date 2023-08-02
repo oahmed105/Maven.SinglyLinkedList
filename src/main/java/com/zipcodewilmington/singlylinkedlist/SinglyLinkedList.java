@@ -7,10 +7,24 @@ import java.util.Comparator;
  */
 public class SinglyLinkedList<T> implements LinkedListIface {
 
-    public SinglyLinkedList() {}
+    private Node<T> head = null;
+
+    public SinglyLinkedList() {
+    }
 
     @Override
     public void add(Object data) {
+        Node newNode = new Node<>(data);
+        if (this.head == null) {
+            this.head = newNode;
+        }
+        else {
+            Node<T> temp = head;
+            while (temp.hasNext()) { //walk to end
+                temp = temp.getNext();
+            }
+            temp.setNext(newNode);
+        }
 
     }
 
@@ -47,5 +61,27 @@ public class SinglyLinkedList<T> implements LinkedListIface {
     @Override
     public void sort(Comparator comparator) {
 
+    }
+
+    public Boolean isEmpty() {
+        return head == null;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("head -> ");
+
+        if (head != null) {
+            Node<T> temp = head;
+            do {
+                sb.append("[" + temp.getData() + "] -> ");
+                temp = temp.getNext();
+            } while ((temp != null));
+        }
+
+        sb.append("NULL");
+        return sb.toString();
     }
 }
