@@ -157,4 +157,24 @@ public class SinglyLinkedListTest {
         Assert.assertEquals(1, linkedList.find(7));
         Assert.assertEquals(2, linkedList.find(9));
     }
+
+    @Test
+    public void contains0Test() {
+        SinglyLinkedList<Integer> linkedList = new SinglyLinkedList<>();
+        linkedList.add(7);
+
+        Assert.assertTrue(linkedList.contains(7));
+
+    }
+
+    @Test
+    public void contains2Test() {
+        SinglyLinkedList<Integer> linkedList = new SinglyLinkedList<>();
+        linkedList.add(7);
+        linkedList.add(9);
+
+        Assert.assertTrue(linkedList.contains(7));
+        Assert.assertTrue(linkedList.contains(9));
+
+    }
 }
