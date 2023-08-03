@@ -164,7 +164,6 @@ public class SinglyLinkedListTest {
         linkedList.add(7);
 
         Assert.assertTrue(linkedList.contains(7));
-
     }
 
     @Test
@@ -175,6 +174,33 @@ public class SinglyLinkedListTest {
 
         Assert.assertTrue(linkedList.contains(7));
         Assert.assertTrue(linkedList.contains(9));
+    }
 
+    @Test
+    public void containsFalseTest() {
+        SinglyLinkedList<Integer> linkedList = new SinglyLinkedList<>();
+        linkedList.add(7);
+
+        Assert.assertFalse(linkedList.contains(45));
+    }
+
+    @Test
+    public void removeTest1() {
+        SinglyLinkedList<Integer> linkedList = new SinglyLinkedList<>();
+        linkedList.add(1);
+        linkedList.remove(0);
+
+        Assert.assertTrue(linkedList.isEmpty());
+    }
+
+    @Test
+    public void removeTest2() {
+        SinglyLinkedList<Integer> linkedList = new SinglyLinkedList<>();
+        linkedList.add(2);
+        linkedList.add(3);
+        linkedList.add(4);
+        linkedList.remove(1);
+
+        Assert.assertFalse(linkedList.contains(3));
     }
 }

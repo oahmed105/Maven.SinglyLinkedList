@@ -30,11 +30,28 @@ public class SinglyLinkedList<T> implements LinkedListIface {
 
     @Override
     public void remove(int index) throws IndexOutOfBoundsException {
+        Node<T> temp = this.head;
 
+        if (index == 0) {
+            this.head = this.head.getNext();
+        }
+        else {
+            for (int i = 0; i < index -1; i++) {
+                if (temp.hasNext()) {
+                    temp = temp.getNext();
+                } else {
+                    throw new IndexOutOfBoundsException();
+                }
+            }
+            temp.setNext(temp.getNext().getNext());
+        }
     }
 
     @Override
     public Object get(int index) throws IndexOutOfBoundsException {
+        Node<T> temp = this.head;
+
+        for (int i =0; i < index; )
         return null;
     }
 
